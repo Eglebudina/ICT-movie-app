@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+
 import MovieHeader from "../headerMovie";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import ImageList from "@material-ui/core/ImageList";
 import ImageListItem from "@material-ui/core/ImageListItem";
 import { getMovieImages } from "../../api/tmdb-api";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,6 +36,7 @@ const TemplateMoviePage = ({ movie, children }) => {
 
   return (
     <>
+      <div className={classes.root}>
       <MovieHeader movie={movie} />
 
       <Grid container spacing={5} style={{ padding: "15px" }}>
@@ -56,6 +59,7 @@ const TemplateMoviePage = ({ movie, children }) => {
           {children}
         </Grid>
       </Grid>
+      </div>
     </>
   );
 };
