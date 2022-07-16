@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import PageTemplate from '../components/templateMovieListPage';
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
 import { getUpcomingMovies } from "../api/tmdb-api";
 import AddToPlaylistIcon from '../components/cardIcons/addToPlaylist';
+import { MoviesContext } from "../contexts/moviesContext";
 
 const UpcomingMoviesPage = (props) => {
-  const {  data, error, isLoading, isError }  = useQuery('upcoming', getUpcomingMovies)
+  const context = useContext(MoviesContext); 
+  const {  data, error, isLoading, isError }  = useQuery('upcoming', getUpcomingMovies);
+  console.log("playlist as follows:")
+  console.log(context.playlist);
 
   if (isLoading) {
     return <Spinner />
