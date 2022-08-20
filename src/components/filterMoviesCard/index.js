@@ -80,7 +80,7 @@ export default function FilterMoviesCard(props) {
         <TextField
             className={classes.formControl}
             id="rating-search"
-            label="Minumum Rating"
+            label="Minimum Rating"
             type="search"
             value={props.ratingFilter}
             variant="rating"
