@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 220,
     backgroundColor: "rgb(255, 255, 255)",
   },
+
 }));
 
 export default function FilterMoviesCard(props) {
@@ -55,10 +56,6 @@ export default function FilterMoviesCard(props) {
     handleChange(e, "genre", e.target.value);
   };
 
-  const handleRatingChange = (e) => {
-    handleChange(e, "rating", e.target.value);
-  };
-
   return (
     <>
     <Card className={classes.root} variant="outlined">
@@ -67,7 +64,6 @@ export default function FilterMoviesCard(props) {
           <SearchIcon fontSize="large" />
           Filter the movies.
         </Typography>
-        <FormControl className={classes.formControl}>
         <TextField
           className={classes.formControl}
           id="filled-search"
@@ -77,15 +73,7 @@ export default function FilterMoviesCard(props) {
           variant="filled"
           onChange={handleTextChange}
         />
-        <TextField
-            className={classes.formControl}
-            id="rating-search"
-            label="Minimum Rating"
-            type="search"
-            value={props.ratingFilter}
-            variant="rating"
-            onChange={handleRatingChange}
-          />
+        <FormControl className={classes.formControl}>
           <InputLabel id="genre-label">Genre</InputLabel>
           <Select
             labelId="genre-label"
