@@ -26,7 +26,9 @@ function MovieListPageTemplate({ movies, title, action }) {
   const [genreFilter, setGenreFilter] = useState("0");
   const [drawerOpen, setDrawerOpen] = useState(false);
 
+  const [ratingFilter, setRatingFilter] = useState("5");
   const genreId = Number(genreFilter);
+  const rating = Number(ratingFilter);
 
   let displayedMovies = movies
     .filter((m) => {
@@ -34,10 +36,15 @@ function MovieListPageTemplate({ movies, title, action }) {
     })
     .filter((m) => {
       return genreId > 0 ? m.genre_ids.includes(genreId) : true;
-    });
+    })
+    .filter((m) => {
+      return  m.vote_average >= rating;
+    })
+    ;
 
   const handleChange = (type, value) => {
     if (type === "name") setTitleFilter(value);
+    if (value >=0 && value <=10) setRatingFilter(value);
     else setGenreFilter(value);
   };
 
@@ -68,6 +75,7 @@ function MovieListPageTemplate({ movies, title, action }) {
           onUserInput={handleChange}
           titleFilter={titleFilter}
           genreFilter={genreFilter}
+          ratingFilter={ratingFilter}
         />
       </Drawer>
     </>    

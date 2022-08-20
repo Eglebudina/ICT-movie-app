@@ -26,7 +26,7 @@ const MoviesByYearPage = (props) => {
 
   return (
     <PageTemplate
-      title="Movies of the 80's"
+      title="Movies of before 90's"
       movies={movies}
       action={(movie) => {
         return <AddToPlaylistIcon movie={movie} />
