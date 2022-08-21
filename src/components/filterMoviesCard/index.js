@@ -1,4 +1,4 @@
-import React from "react"; 
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
@@ -11,7 +11,7 @@ import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import { getGenres } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
-import Spinner from '../spinner';
+import Spinner from '../spinner'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,13 +24,12 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 220,
     backgroundColor: "rgb(255, 255, 255)",
   },
-
 }));
 
 export default function FilterMoviesCard(props) {
   const classes = useStyles();
   const { data, error, isLoading, isError } = useQuery("genres", getGenres);
-
+  
   if (isLoading) {
     return <Spinner />;
   }
@@ -69,7 +68,7 @@ export default function FilterMoviesCard(props) {
           id="filled-search"
           label="Search field"
           type="search"
-          vvalue={props.titleFilter}
+          value={props.titleFilter}
           variant="filled"
           onChange={handleTextChange}
         />

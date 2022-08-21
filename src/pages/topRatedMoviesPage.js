@@ -4,6 +4,7 @@ import PageTemplate from '../components/templateMovieListPage';
 import { getTopRatedMovies } from "../api/tmdb-api";
 import Spinner from '../components/spinner'
 import AddToFavouritesIcon from '../components/cardIcons/addToFavourites'
+import AddFantasyIcon from "../components/cardIcons/addFantasy";
 
 const TopRatedMoviesPage = (props) => {
     const {  data, error, isLoading, isError }  = useQuery('toprated', getTopRatedMovies)
@@ -25,6 +26,7 @@ const TopRatedMoviesPage = (props) => {
       action={(movie) => {
         return <div>
         <AddToFavouritesIcon movie={movie} />
+        <AddFantasyIcon movie={movie} />
         </div>
 
       }}
