@@ -29,8 +29,8 @@ export default function ActorCard({ actor, action }) {
       <CardMedia
         className={classes.media}
         image={
-          actor.poster_path
-            ? `https://image.tmdb.org/t/p/w500/${actor.poster_path}`
+          actor.profile_path
+            ? `https://image.tmdb.org/t/p/w500/${actor.profile_path}`
             : `${process.env.PUBLIC_URL}/assets/film-poster-placeholder.png`
         }
       />
@@ -38,7 +38,7 @@ export default function ActorCard({ actor, action }) {
         {action(actor)}
         <Link to={`/actor/${actor.id}`}>
           <Button variant="outlined" size="medium">
-            More Info ...
+            Actor Bio ...
           </Button>
         </Link>
       </CardActions>
