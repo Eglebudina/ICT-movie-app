@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
 
 const TemplateActorBioPage = ({ actor, children }) => {
   const classes = useStyles();
-  const { data, error, isLoading, isError } = useQuery(
+  const { error, isLoading, isError } = useQuery(
     ["actor images", { id: actor.id }],
     getActorsImage
   );

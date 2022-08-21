@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) =>  ({
     marginTop: theme.spacing(7),
     position: "fixed",
     top: theme.spacing(1),
-    right: theme.spacing(1),
+    right: theme.spacing(),
   },
 }));
 

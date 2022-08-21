@@ -5,14 +5,13 @@ import TemplateActorBioPage from "../components/templateActorBio";
 import { getActorBio } from '../api/tmdb-api';
 import { useQuery } from "react-query";
 import Spinner from '../components/spinner';
+import { Link } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 
-
-const ActorBiographyPage = () => {
+const ActorsBioPage = () => {
   const { id } = useParams();
   const { data: actor, error, isLoading, isError } = useQuery(
-    ["actor", { id: id }],
-    getActorBio
-  );
+    ["actor", { id: id }], getActorBio);
 
   if (isLoading) {
     return <Spinner />;
@@ -28,6 +27,11 @@ const ActorBiographyPage = () => {
         <>
           <TemplateActorBioPage actor={actor}>
             <ActorDetails actor={actor} />
+            <Link to={`/actor/${actor.id}/movies`}>
+              <Button variant="contained" size="large" color="success">
+                {actor.name}'s Movies ...
+              </Button>
+            </Link>
           </TemplateActorBioPage>
         </>
       ) : (
@@ -37,4 +41,4 @@ const ActorBiographyPage = () => {
   );
 };
 
-export default ActorBiographyPage;
+export default ActorsBioPage;

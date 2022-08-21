@@ -2,15 +2,11 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
-//import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardHeader from "@material-ui/core/CardHeader";
 import Button from "@material-ui/core/Button";
-//import Typography from "@material-ui/core/Typography";
-// import CalendarIcon from "@material-ui/icons/CalendarTodayTwoTone";
-// import StarRateIcon from "@material-ui/icons/StarRate";
-// import Grid from "@material-ui/core/Grid";
 import { Link } from "react-router-dom";
+import { Typography } from "@material-ui/core";
 
 const useStyles = makeStyles({
   card: { maxWidth: 345 },
@@ -34,13 +30,25 @@ export default function ActorCard({ actor, action }) {
             : `${process.env.PUBLIC_URL}/assets/film-poster-placeholder.png`
         }
       />
-      <CardActions >
-        {action(actor)}
+      
+      <CardActions>
         <Link to={`/actor/${actor.id}`}>
-          <Button variant="outlined" size="medium">
+          <Button
+            variant="outlined"
+            size="medium"
+            style={{ background: "green ", color: "white" }}
+          >
             Actor Bio ...
           </Button>
         </Link>
+        <Typography>
+          POPULARITY
+          <CardHeader
+            className={classes.header}
+            title={actor.popularity}
+            style={{ color: "black" }}
+          />
+        </Typography>
       </CardActions>
     </Card>
   );
