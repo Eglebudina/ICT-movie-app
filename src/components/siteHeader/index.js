@@ -22,12 +22,12 @@ const useStyles = makeStyles((theme) => ({
   inactiveLink: {
     color: 'white',
     padding : theme.spacing(1),
-    fontSize: '1.5rem'
+    fontSize: '1rem'
   },
   activeLink: {
     color: 'black',
     padding : theme.spacing(1),
-    fontSize: '1.5rem',
+    fontSize: '1rem',
     background: "#bfbfbf"
   }
 }));
@@ -47,6 +47,7 @@ const SiteHeader = () => {
     { label: "TOP RATED", path: "/movies/toprated" },
     { label: "POPULAR", path: "/movies/popular" },
     { label: "PLAYLIST", path: "/movies/playlist" },
+    { label: "ACTORS LIST", path: "/actors" },
   ];
 
   const handleMenuSelect = (pageURL) => {
@@ -62,10 +63,10 @@ const SiteHeader = () => {
       <AppBar className={classes.appbar}
       position="fixed" elevation={0} color='primary'> 
         <Toolbar>
-          <Typography variant="h4" className={classes.title}>
+          <Typography variant="h5" className={classes.title}>
             TMDB Client
           </Typography>
-          <Typography variant="h6" className={classes.title}>
+          <Typography variant="h7" className={classes.title}>
             All you ever wanted to know about Movies!
           </Typography>
           {isMobile ? (
