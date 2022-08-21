@@ -9,6 +9,7 @@ import MovieList from "../movieList";
 
 const useStyles = makeStyles((theme) =>  ({
   root: {
+    padding: "20px",
     backgroundColor: "#bfbfbf",
     paddingTop: theme.spacing(7),
   },
@@ -25,7 +26,6 @@ function MovieListPageTemplate({ movies, title, action }) {
   const [titleFilter, setTitleFilter] = useState("");
   const [genreFilter, setGenreFilter] = useState("0");
   const [drawerOpen, setDrawerOpen] = useState(false);
-
   const genreId = Number(genreFilter);
 
   let displayedMovies = movies
@@ -34,7 +34,8 @@ function MovieListPageTemplate({ movies, title, action }) {
     })
     .filter((m) => {
       return genreId > 0 ? m.genre_ids.includes(genreId) : true;
-    });
+    })
+    ;
 
   const handleChange = (type, value) => {
     if (type === "name") setTitleFilter(value);

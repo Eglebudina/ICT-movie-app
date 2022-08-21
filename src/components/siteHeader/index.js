@@ -41,11 +41,12 @@ const SiteHeader = () => {
 
   const open = Boolean(anchorEl);
   const menuOptions = [
-    { label: "Home", path: "/" },
-    { label: "Upcoming", path: "/movies/upcoming" },
-    { label: "Favourites", path: "/movies/favourites" },
-    { label: "Option 3", path: "/" },
-    { label: "Option 4", path: "/" },
+    { label: "HOME", path: "/" },
+    { label: "UPCOMING", path: "/movies/upcoming" },
+    { label: "FAVOURITES", path: "/movies/favourites" },
+    { label: "TOP RATED", path: "/movies/toprated" },
+    { label: "POPULAR", path: "/movies/popular" },
+    { label: "PLAYLIST", path: "/movies/playlist" },
   ];
 
   const handleMenuSelect = (pageURL) => {

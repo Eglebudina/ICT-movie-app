@@ -100,4 +100,41 @@ export const getSimilarMovies = (args) => {
     throw error
  });
 };
+
+//new API for Top Rated Movies
+export const getTopRatedMovies = async () => {
+  const response = await fetch(
+    `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+  );
+  if (!response.ok) {
+    throw new Error(response.json().message);
+  }
+  return response.json();
+};
+
+
+//new API for Popular Movies
+export const getPopularMovies = async () => {
+  const response = await fetch(
+    `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+  );
+  if (!response.ok) {
+    throw new Error(response.json().message);
+  }
+  return response.json();
+};
+
+export const getPlaylisttMovies = id => {
+  return fetch(
+    `https://api.themoviedb.org/3/movie/${id}/lists?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+    ).then( (response) => {
+      if (!response.ok) {
+        throw new Error(response.json().message);
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      throw error
+   });
+  };
   
