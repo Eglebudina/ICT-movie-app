@@ -5,46 +5,86 @@ Name: [Egle Budinaviciute]
 
 ## Overview.
 
-[ A paragraph on your React app's concept followed by a bullet-point list of its feature set - only list new/modified features if you are expanding the Movies app. ]
+A React.js Web Application allowing to view popular,upcoming, toprated movies. You cna also view a list of actors in the movie detail section. You can favourite the movies and also add them to playlist. There is a fantasy movie feature to create your own fantasy movie.
 
-e.g. 
-+ Feature 1
-+ Feature 2
-+ Feature 3
-+ etc
-+ etc
+Added Features:
+
+Popular Movies
+Top Rated Movies
+    - new icon to add to fantasy list (placeholder)
+Upcoming Movies
+
+Actors Page
+    - Actors Bio page (placeholder)
+    - Actor Movies Page
+    - popularity
+Movie info Actors list:
+    - Actors Bio (pop up)
+    - Cast Details Component added to Movie Details Page (hyperlinking)
+
+Fantasy Movie Page
+    - Fantasy Movie List
+    - Fantasy Movie Form
+    - multiselect-react-dropdown for dropdown menus in fantasy movie feature.
+
+
 
 ## Setup requirements.
 
-[ Briefly state (to a third party) the setup steps necessary to run your app/client locally, e.g. .env and any other config files.]
+-Clone this repo.
+-Open it in your IDE.
+-run npm install
+-sign up for a TMDB account here, go to settings and an API key. Add this to a .env file which you will add to the base folder of the application. Set REACT_APP_TMDB_KEY= variable to this value.
+-run npm run start to run application on local host 3000
+-run npm run storybook to run storybook on local host 6006
 
 ## App Design.
 
 ### Routing/Navigation.
 
-[List the set of routes your app supports - only mention new instances if you expanded the Movies Fan app. State the view linked with each route.] 
+Routes added:
 
-e.g.
-+ /movies/:id - detailed information on a specific movie.
-+ /movies/upcoming - lists movies soon to be shown in cinemas.
-+ etc.
-+ etc.
+/movies/popular - lists popular movies.
+/movies/toprated - lists top rated movies.
+/movies/playlist - shows the must watch or playlist list.
+/actors - lists popular actors.
+/actorsMovieDetails - shows actors for each movie.
+/actorsBioPage - shows more details on selected actor.
+/movies/fantasy - shows listfantasy movies if created, and a form to add a fantasy movie.
+
 
 ### Views/Pages.
 
-[ For each view in your app, show a screenshot and caption - only new/modified ones in the case of the Movies Fan app. If necessary, use multiple screenshots to cover a view's full capability.
+Playlist Page - Lists movies that user has added to playlist. Items can be removed from list, user can write a review, or view more info on the movie. This movie list can also be filtered by genre. All movie list pages have this filter and sort functionality. 
 
-e.g.
->Lists movies from the Discover endpoint. Filtering on title and genre attributes is supported.
 
 ![][d1]
 
+Filter - movie can be filtered genre. It does not work for actors.
+
 ![][d2]
 
->Shows detailed information on a specific movie
+Shows detailed information on a specific movie. There is a list of cast below with a plus sign to see more info.
 
 ![][detail]
 
+![][detail2]
+
+The pop up with bio show details of each actor.
+
+![][detail3]
+
+There is a seperate page in the site header showing the list of actors. It shows actors popularity ratings. Attempt was maded here to show actors biography.
+
+![][detail4]
+
+Top Rated movies - lists the movies from the top popular movie API endpoint. A user can add a movie to their favourites, and there was attempt maded there to add movies to fantasy list.
+
+![][detail5]
+
+Fantasy Movie - showing a list of fantasy movies if added, and a form to add a fantasy movie.
+
+![][detail6]
 
 ### Component catalogue.
 
