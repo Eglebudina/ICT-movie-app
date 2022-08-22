@@ -129,5 +129,10 @@ platform your app uses (e.g. TMDB lists, Firestore) and itemize the data it pers
 [d1]: ./public/discover1.png
 [d2]: ./public/discover2.png
 [detail]: ./public/detail.png
+[detail2]: ./public/detail2.png
+[detail3]: ./public/detail3.png
+[detail4]: ./public/detail4.png
+[detail5]: ./public/detail5.png
+[detail6]: ./public/detail6.png
 [caching]: ./public/caching.png
 [stories]: ./public/stories.png
