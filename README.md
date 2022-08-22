@@ -95,13 +95,12 @@ e.g.
 
 ## Caching.
 
-[ List the TMDB server state cached by the app. Include a screenshot(s) of the react-query dev tools to validate your list.]
-
-e.g.
 + Discover movies (pagination support)
-+ Movie details
- + etc
-+ etc
++ actors
++ getActors
++ toprated
++ upcoming
++ popular
 
 ![][caching]
 
@@ -134,5 +133,5 @@ platform your app uses (e.g. TMDB lists, Firestore) and itemize the data it pers
 [detail4]: ./public/detail4.png
 [detail5]: ./public/detail5.png
 [detail6]: ./public/detail6.png
-[caching]: ./public/caching.png
+[caching]: ./public/cache.png
 [stories]: ./public/stories.png
