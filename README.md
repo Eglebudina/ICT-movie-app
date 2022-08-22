@@ -106,24 +106,19 @@ e.g.
 
 ## Authentication (if relevant).
 
-[Briefly state how you implemented authentication for the app, e.g. basic, Firebase, etc. Also, list the routes that are private/protected.]
-
-e.g.
-+ /reviews/:id
-+ /movies/favourites
 
 ## Server-side persistence (if relevant)
 
-[ Specify the persistence 
-platform your app uses (e.g. TMDB lists, Firestore) and itemize the data it persists.]
 
 ## Additional features (if relevant),
 
-[Mention any additional user features of your app that may not be obvious from the previous sections, e.g. pagination, extended filtering/sorting, searching.]
+My Fantasy Movie - use of multiselect drop down menus using multiselect-react-dropdown.
+This allows a user to choose multiple actors/genres from the list given and search by typing in the 'choose genres/choose actors' fields in the form.
 
 ## Independent learning (if relevant),
 
-[Briefly explain any aspects of your assignment work that required independent learning (i.e. not addressed in the lectures or labs) on your behalf., e.g. 3rd-party components, libraries, tools. Include source code references.]
+Independent learning and research when using third party components in the Fantasy Movie form which included multiselect-react-dropdown.
+
 
 [d1]: ./public/discover1.png
 [d2]: ./public/discover2.png
