@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import ActorDetails from "../components/actorDetails";
 import TemplateActorBioPage from "../components/templateActorBio";
-import { getActorBio } from '../api/tmdb-api';
+import { getActor } from "../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from '../components/spinner';
 import { Link } from "react-router-dom";
@@ -11,7 +11,7 @@ import Button from "@material-ui/core/Button";
 const ActorsBioPage = () => {
   const { id } = useParams();
   const { data: actor, error, isLoading, isError } = useQuery(
-    ["actor", { id: id }], getActorBio);
+    ["actor", { id: id }], getActor);
 
   if (isLoading) {
     return <Spinner />;

@@ -17,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   appbar: {
-    // background: 'none',
   },
   inactiveLink: {
     color: 'white',
@@ -48,6 +47,7 @@ const SiteHeader = () => {
     { label: "POPULAR", path: "/movies/popular" },
     { label: "PLAYLIST", path: "/movies/playlist" },
     { label: "ACTORS LIST", path: "/actors" },
+    { label: "FANTASY", path: "/movies/fantasy" },
   ];
 
   const handleMenuSelect = (pageURL) => {

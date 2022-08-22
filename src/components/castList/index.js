@@ -3,7 +3,6 @@ import CastMemberCard from "../castMemberCard";
 import Grid from "@material-ui/core/Grid";
 import { useParams } from "react-router-dom";
 import { getCredits } from "../../api/tmdb-api";
-import { getCast } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from "../spinner";
 import { makeStyles } from "@material-ui/core/styles";
@@ -59,7 +58,7 @@ const CastList = ( props ) => {
     setOpen(false);
     setActorDetails({});
   };
-  const {  data, error, isLoading, isError }  = useQuery(['credits', {id: id}], getCredits, getCast)
+  const {  data, error, isLoading, isError }  = useQuery(['credits', {id: id}], getCredits)
   if (isLoading) {
     return <Spinner />
   }

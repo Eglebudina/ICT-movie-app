@@ -1,36 +1,48 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardMedia from "@material-ui/core/CardMedia";
-import CardHeader from "@material-ui/core/CardHeader";
-import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
-import { Typography } from "@material-ui/core";
+import {
+  Card,
+  CardMedia,
+  CardContent,
+  CardActions,
+  CardHeader,
+  Button,
+} from "@material-ui/core";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import { excerpt } from "../../util";
 
-const useStyles = makeStyles({
-  card: { maxWidth: 345 },
-  media: { height: 360 },
-  avatar: {
-    backgroundColor: "rgb(255, 0, 0)",
+const useStyles = makeStyles((theme) => ({
+  cardStyle: {
+    margin: "10px",
+    display: "flex",
+    justiyContent: "space-between",
+    flexDirection: "column",
   },
-});
+  bottomButton: {
+    justifyContent: "center",
+    marginTop: "auto",
+  },
+}));
 
-export default function ActorCard({ actor, action }) {
+export default function ActorCard({ actor }) {
   const classes = useStyles();
 
   return (
-    <Card className={classes.card}>
-      <CardHeader className={classes.header} title={actor.name} />
+    <Card className={classes.cardStyle}>
       <CardMedia
-        className={classes.media}
-        image={
-          actor.profile_path
-            ? `https://image.tmdb.org/t/p/w500/${actor.profile_path}`
-            : `${process.env.PUBLIC_URL}/assets/film-poster-placeholder.png`
-        }
+        component="img"
+        image={`https://image.tmdb.org/t/p/w500${actor.profile_path}`}
+        alt={actor.name}
       />
-      
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          {actor.name}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {excerpt(actor.biography)}
+        </Typography>
+      </CardContent>
       <CardActions>
         <Link to={`/actor/${actor.id}`}>
           <Button

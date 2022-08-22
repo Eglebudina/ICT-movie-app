@@ -1,49 +1,34 @@
-import React, { useContext } from "react";
-import PageTemplate from "../components/templateMovieListPage";
-import { MoviesContext } from "../contexts/moviesContext";
-import { useQueries } from "react-query";
-import { getMovie } from "../api/tmdb-api";
-import Spinner from "../components/spinner";
-import WriteReview from "../components/cardIcons/writeReview";
-import RemoveFromFantasyIcon from "../components/cardIcons/removeFantasy";
+import React from "react";
+import FantasyMovieForm from "../components/fantasyMovieForm";
+import Header from "../components/headerMovieList";
+import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
 
+const useStyles = makeStyles((theme) =>  ({
+  root: {
+    paddingTop: theme.spacing(7),
+  },
+  fab: {
+    marginTop: theme.spacing(8),
+    position: "fixed",
+    top: theme.spacing(2),
+    right: theme.spacing(2),
+  },
+}));
 
-const FantasyMoviesPage = () => {
-  const { myFantasy: movieIds } = useContext(MoviesContext);
+const FantasyMoviePage = (props) => {
+  const classes = useStyles();
 
-const fantasyMovieQueries = useQueries(
-  movieIds.map((movieId) => {
-    return {
-      queryKey: ["movie", { id: movieId }],
-      queryFn: getMovie,
-    };
-  })
-);
-const isLoading = fantasyMovieQueries.find((m) => m.isLoading === true);
-
-if (isLoading) {
-  return <Spinner />;
-}
-
-const movies = fantasyMovieQueries.map((q) => {
-  q.data.genre_ids = q.data.genres.map((g) => g.id);
-  return q.data;
-});
-
-return (
-  <PageTemplate
-    title="MY FANTASY"
-    movies={movies}
-    action={(movie) => {
-      return (
-        <>
-          <RemoveFromFantasyIcon movie={movie} />
-          <WriteReview movie={movie} />
-        </>
-      );
-    }}
-  />
-);
+  return (
+    <>
+        <Grid container className={classes.root}>
+        <Grid item xs={12}>
+          <Header title={"My Fantasy Movie"} />
+          <FantasyMovieForm/>
+        </Grid>
+      </Grid>
+    </>
+  );
 };
 
-export default FantasyMoviesPage;
+export default FantasyMoviePage;
